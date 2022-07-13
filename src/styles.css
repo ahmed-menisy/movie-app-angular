@@ -12,6 +12,7 @@ body {
   font-family: "Catamaran", sans-serif;
   background-color: var(--main-color);
   color: var(--color-white);
+  overflow-x: hidden;
 }
 .t-light {
   color: var(--color-light);
