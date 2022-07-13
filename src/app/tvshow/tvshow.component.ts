@@ -1,4 +1,4 @@
-import { Subscription } from 'rxjs';
+import { Subscription, delay } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MoviesService } from '../movies.service';
 
@@ -23,6 +23,7 @@ export class TvshowComponent implements OnInit, OnDestroy {
   getTrendingMovies(): void {
     this.subscription = this._MoviesService
       .getMoviesData('trending/tv/week')
+      .pipe(delay(1300))
       .subscribe({
         next: (response) => {
           this.moviesAll = response.results;

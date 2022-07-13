@@ -1,4 +1,4 @@
-import { Subscription } from 'rxjs';
+import { Subscription, delay } from 'rxjs';
 import { MoviesService } from './../movies.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
@@ -18,12 +18,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
   // Function To Get Data From Api
   getSearch(keyword: string): void {
-    if (keyword.length > 0) {
-      this.subscription = this._MoviesService.getSearch(keyword).subscribe({
-        next: (response) => {
-          this._MoviesService.searchMovies = response.results;
-        },
-      });
+    if (keyword) {
+      this.subscription = this._MoviesService
+        .getSearch(keyword)
+        .pipe(delay(1300))
+        .subscribe({
+          next: (response) => {
+            this._MoviesService.searchMovies = response.results;
+          },
+        });
     }
   }
 }
