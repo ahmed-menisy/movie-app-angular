@@ -11,6 +11,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   updateData: any;
   trendingName: string = 'Search';
   moviesAll: any[] = [];
+  aosSearch: string = 'flip-up';
   constructor(private _MoviesService: MoviesService) {}
   ngOnInit(): void {
     this.updateData = setInterval(() => {

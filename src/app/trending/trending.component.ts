@@ -9,8 +9,10 @@ import { MoviesService } from '../movies.service';
 export class TrendingComponent implements OnInit {
   trendingName: string = 'Trending All This Week';
   moviesAll: any[] = [];
+  aosTrend:string ='fade-up'
   constructor(private _MoviesService: MoviesService) {}
   ngOnInit(): void {
+    this._MoviesService.aosAnimation();
     this.getTrendingMovies();
   }
   // Function To Get Data From Api
@@ -18,7 +20,7 @@ export class TrendingComponent implements OnInit {
     this._MoviesService.getMoviesData('trending/all/week').subscribe({
       next: (response) => {
         this.moviesAll = response.results;
-      }
+      },
     });
   }
 }

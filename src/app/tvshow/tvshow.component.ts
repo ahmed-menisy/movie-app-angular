@@ -9,6 +9,7 @@ import { MoviesService } from '../movies.service';
 export class TvshowComponent implements OnInit {
   trendingName: string = 'Trending Tv Shows This Week';
   moviesAll: any[] = [];
+  aosTv:string = 'flip-left'
   constructor(private _MoviesService: MoviesService) {}
   ngOnInit(): void {
     this.getTrendingMovies();

@@ -9,6 +9,7 @@ import { MoviesService } from '../movies.service';
 export class PopularComponent implements OnInit {
   trendingName: string = 'Popular';
   moviesAll: any[] = [];
+  aosPop:string = 'zoom-in'
   constructor(private _MoviesService: MoviesService) {}
   ngOnInit(): void {
     this.getTrendingMovies();

@@ -5,13 +5,21 @@
       <h5 class="item-sub t-light">Watch Now On Movies Review</h5>
     </div>
   </div>
-  <div *ngFor="let movie of movies" class="col">
+  <div *ngFor="let movie of movies" class="col" [attr.data-aos]="animationName" data-aos-duration="1500">
     <div class="card text-center h-100">
       <!-- Start Rating Item -->
       <div class="rating position-absolute top-0 end-0">
         <i
           class="fa-solid fa-star"
-          [style]="movie.vote_average == 0 ? '':ratString +movie.vote_average * 10 +'% , transparent ' +(100 - movie.vote_average * 10) +'%' "
+          [style]="
+            movie.vote_average == 0
+              ? ''
+              : ratString +
+                movie.vote_average * 10 +
+                '% , transparent ' +
+                (100 - movie.vote_average * 10) +
+                '%'
+          "
         ></i>
         <span class="fw-bold small ms-1">{{
           movie.vote_average.toString().slice(0, 3)
@@ -19,7 +27,7 @@
       </div>
       <!-- End Rating Item -->
       <img
-      onerror="this.onerror=null;this.src='./assets/download.png'"
+        onerror="this.onerror=null;this.src='./assets/download.png'"
         class="card-img-top w-100 movies-img"
         [src]="imgPath + movie.backdrop_path"
         alt="movie photo"

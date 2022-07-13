@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import * as AOS from 'aos';
 @Injectable({
   providedIn: 'root',
 })
-export class MoviesService {
+export class MoviesService  {
   searchMovies: any[] = [];
   imgUrl: string = 'https://image.tmdb.org/t/p/original'; // img path
   ratString: string =
@@ -18,5 +18,8 @@ export class MoviesService {
   }
   getSearch(keyword:string): Observable<any> {
     return this._HttpClient.get(`https://api.themoviedb.org/3/search/movie?api_key=48d62e7452a1f1a5e6018217ac27c50a&query=${keyword}`)
+  }
+  aosAnimation():void {
+    AOS.init();
   }
 }

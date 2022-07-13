@@ -10,6 +10,7 @@ export class NowplayingComponent implements OnInit {
 
   trendingName: string = 'Now Playing';
   moviesAll: any[] = [];
+  aosNow:string = 'zoom-out'
   constructor(private _MoviesService: MoviesService) {}
   ngOnInit(): void {
     this.getTrendingMovies();
