@@ -11,13 +11,7 @@
       <div class="rating position-absolute top-0 end-0">
         <i
           class="fa-solid fa-star"
-          [style]="
-            ratString +
-            movie.vote_average * 10 +
-            '% , transparent ' +
-            (100 - movie.vote_average * 10) +
-            '%'
-          "
+          [style]="movie.vote_average == 0 ? '':ratString +movie.vote_average * 10 +'% , transparent ' +(100 - movie.vote_average * 10) +'%' "
         ></i>
         <span class="fw-bold small ms-1">{{
           movie.vote_average.toString().slice(0, 3)
