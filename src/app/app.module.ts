@@ -12,7 +12,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { MoviedataComponent } from './moviedata/moviedata.component';
 import { PopularComponent } from './popular/popular.component';
 import { NowplayingComponent } from './nowplaying/nowplaying.component';
-import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { SearchComponent } from './search/search.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

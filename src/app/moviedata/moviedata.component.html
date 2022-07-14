@@ -5,8 +5,13 @@
       <h5 class="item-sub t-light">Watch Now On Movies Review</h5>
     </div>
   </div>
-  <ng-container *ngIf="movies.length else loading">
-    <div *ngFor="let movie of movies" class="col" [attr.data-aos]="animationName" data-aos-duration="1500">
+  <ng-container *ngIf="movies.length; else loading">
+    <div
+      *ngFor="let movie of movies"
+      class="col"
+      [attr.data-aos]="animationName"
+      data-aos-duration="1500"
+    >
       <div class="card text-center h-100">
         <!-- Start Rating Item -->
         <div class="rating position-absolute top-0 end-0">
@@ -41,7 +46,7 @@
           <p class="card-subtitle small t-light text-uppercase">
             {{ movie.media_type }}
           </p>
-  
+
           <p class="card-text my-2 t-light">{{ movie.overview }}</p>
         </div>
         <div class="card-footer hstack justify-content-between">
@@ -60,7 +65,9 @@
   </ng-container>
 </div>
 <ng-template #loading>
-  <h2 class="text-center text-secondary position-absolute top-50 start-50 translate-middle">
-    <i class="fas fa-spinner fa-spin fa-2x"></i>
+  <h2
+    class="text-center text-secondary position-absolute top-50 start-50 translate-middle"
+  >
+    <i class="fas fa-spinner fa-spin fa-3x" style="--fa-animation-duration: 1.2s;" ></i>
   </h2>
 </ng-template>

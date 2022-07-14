@@ -9,8 +9,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
-  searchText: string = '';
-  moviesAll: any[] = [];
   constructor(private _MoviesService: MoviesService) {}
   ngOnInit(): void {}
   ngOnDestroy(): void {
