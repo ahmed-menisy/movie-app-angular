@@ -6,6 +6,7 @@ import * as AOS from 'aos';
   providedIn: 'root',
 })
 export class MoviesService  {
+  loading!:boolean
   searchMovies: any[] = [];
   imgUrl: string = 'https://image.tmdb.org/t/p/original'; // img path
   ratString: string =
@@ -18,6 +19,9 @@ export class MoviesService  {
   }
   getSearch(keyword:string): Observable<any> {
     return this._HttpClient.get(`https://api.themoviedb.org/3/search/movie?api_key=48d62e7452a1f1a5e6018217ac27c50a&query=${keyword}`)
+  }
+  getMovieByID(id:string , keyword:string):Observable<any> {
+    return this._HttpClient.get(`https://api.themoviedb.org/3/${keyword}/${id}?api_key=48d62e7452a1f1a5e6018217ac27c50a&language=en-US`)
   }
   aosAnimation():void {
     AOS.init();

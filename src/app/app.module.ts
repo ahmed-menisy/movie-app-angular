@@ -13,6 +13,7 @@ import { MoviedataComponent } from './moviedata/moviedata.component';
 import { PopularComponent } from './popular/popular.component';
 import { NowplayingComponent } from './nowplaying/nowplaying.component';
 import { SearchComponent } from './search/search.component';
+import { DetailsComponent } from './details/details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { SearchComponent } from './search/search.component';
     MoviedataComponent,
     PopularComponent,
     NowplayingComponent,
-    SearchComponent
+    SearchComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

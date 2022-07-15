@@ -7,9 +7,10 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./moviedata.component.css'],
 })
 export class MoviedataComponent implements OnInit {
-  @Input() trendingName: string = '';
+  @Input() trendingName!: string;
   @Input() movies: any;
-  @Input() animationName: string = '';
+  @Input() animationName!: string;
+  @Input() loading!: boolean;
   imgPath: string = ''; // path image
   ratString: string = '';
   constructor(private _MoviesService: MoviesService) {}

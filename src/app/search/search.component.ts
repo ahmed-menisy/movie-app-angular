@@ -12,11 +12,18 @@ export class SearchComponent implements OnInit, OnDestroy {
   trendingName: string = 'Search';
   moviesAll: any[] = [];
   aosSearch: string = 'flip-up';
-  subscrip: Subscription = new Subscription();
+  subscrip!: Subscription;
+  loading!: boolean;
   constructor(private _MoviesService: MoviesService) {}
   ngOnInit(): void {
-    this.subscrip = interval(1).subscribe(() => {
-      this.moviesAll = this._MoviesService.searchMovies;
+    this.subscrip = interval(1).subscribe({
+      next: () => {
+        this.loading = this._MoviesService.loading;
+        this.moviesAll = this._MoviesService.searchMovies;
+      },
+      error: (err) => {
+        alert(err);
+      },
     });
   }
   ngOnDestroy(): void {

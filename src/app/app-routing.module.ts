@@ -7,6 +7,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { TrendingComponent } from './trending/trending.component';
 import { TvshowComponent } from './tvshow/tvshow.component';
 import { SearchComponent } from './search/search.component';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'trending', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'popular', component: PopularComponent, title: 'Popular' },
   { path: 'nowplaying', component: NowplayingComponent, title: 'Now Playing' },
   { path: 'search', component: SearchComponent, title: 'search' },
+  { path: 'details/:id/:type', component: DetailsComponent, title: 'details' },
   { path: '**', component: NotfoundComponent, title: 'Not Found' },
 ];
 

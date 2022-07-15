@@ -8,10 +8,11 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./trending.component.css'],
 })
 export class TrendingComponent implements OnInit, OnDestroy {
-  subscription: Subscription = new Subscription();
+  subscription!: Subscription ;
   trendingName: string = 'Trending All This Week';
   moviesAll: any[] = [];
   aosTrend: string = 'fade-up';
+  loading:boolean = false
   constructor(private _MoviesService: MoviesService) {}
   ngOnInit(): void {
     this._MoviesService.aosAnimation();
@@ -27,8 +28,12 @@ export class TrendingComponent implements OnInit, OnDestroy {
       .pipe(delay(1300))
       .subscribe({
         next: (response) => {
+          this.loading = true
           this.moviesAll = response.results;
-        },
+        },error:(err)=> {
+          this.loading = false
+          alert(err)
+        }
       });
   }
 }

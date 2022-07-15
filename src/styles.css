@@ -30,6 +30,13 @@ body {
 }
 .card {
   background-color: var(--second-color) !important;
+  cursor: pointer;
+  filter: grayscale(.5);
+  transition: all .5s;
+}
+.card:hover {
+  filter: grayscale(0) drop-shadow(0 0 15px rgb(0 0 0 / .5));
+  transform: scale(1.05);
 }
 .card-text {
   display: -webkit-box;

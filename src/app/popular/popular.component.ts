@@ -8,10 +8,11 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./popular.component.css'],
 })
 export class PopularComponent implements OnInit, OnDestroy {
-  subscription: Subscription = new Subscription();
+  subscription!: Subscription ;
   trendingName: string = 'Popular';
   moviesAll: any[] = [];
   aosPop: string = 'zoom-in';
+  loading:boolean = false
   constructor(private _MoviesService: MoviesService) {}
   ngOnInit(): void {
     this.getTrendingMovies();
@@ -28,8 +29,12 @@ export class PopularComponent implements OnInit, OnDestroy {
       .pipe(delay(1300))
       .subscribe({
         next: (response) => {
+          this.loading = true;
           this.moviesAll = response.results;
-        },
+        },error:(err)=> {
+          this.loading = false;
+          alert(err)
+        }
       });
   }
 }

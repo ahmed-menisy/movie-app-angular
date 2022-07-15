@@ -5,12 +5,13 @@
       <h5 class="item-sub t-light">Watch Now On Movies Review</h5>
     </div>
   </div>
-  <ng-container *ngIf="movies.length; else loading">
+  <ng-container *ngIf="loading else spin ">
     <div
       *ngFor="let movie of movies"
       class="col"
       [attr.data-aos]="animationName"
       data-aos-duration="1500"
+      routerLink="/details/{{movie.id}}/{{movie.media_type}}"
     >
       <div class="card text-center h-100">
         <!-- Start Rating Item -->
@@ -64,7 +65,7 @@
     </div>
   </ng-container>
 </div>
-<ng-template #loading>
+<ng-template #spin>
   <h2
     class="text-center text-secondary position-absolute top-50 start-50 translate-middle"
   >
