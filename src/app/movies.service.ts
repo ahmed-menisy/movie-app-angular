@@ -27,3 +27,4 @@ export class MoviesService  {
     AOS.init();
   }
 }
+// ng build --output-path docs --base-href /movie-app-angular/
